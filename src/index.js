@@ -56,12 +56,12 @@ async function init(self, env, utils, gateways, beacons) {
     }
   }
 
-  if (config.username) {
+  if (config.loginApiPath) {
     startRefreshToken();
   }
 
   setInterval(() => {
-    if (config.username && !headers.Authorization) return;
+    if (config.loginApiPath && !headers.Authorization) return;
 
     const now = new Date().getTime();
 
@@ -88,7 +88,7 @@ async function init(self, env, utils, gateways, beacons) {
   }, env.beaconAuditTime);
 
   setInterval(() => {
-    if (config.username && !headers.Authorization) return;
+    if (config.loginApiPath && !headers.Authorization) return;
 
     const data = {};
     const now = new Date().getTime();
@@ -134,7 +134,7 @@ async function test(self, utils) {
     }
 
     const poster = createPoster(config.protocol);
-    if (config.username) {
+    if (config.loginApiPath) {
       const res = await poster.post(config.host, config.port, config.loginApiPath, JSON.stringify({
         username: config.username,
         password: config.password,
