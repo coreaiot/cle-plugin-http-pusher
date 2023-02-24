@@ -32,8 +32,8 @@ module.exports = {
       name: 'port',
       type: 'number',
       description: 'Port',
-      placeholder: 'e.g. 1883',
-      value: 1883,
+      placeholder: 'e.g. 80',
+      value: 80,
     },
     {
       name: 'apiPath',
